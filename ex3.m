@@ -18,7 +18,7 @@
 
 %% Initialization
 clear ; close all; clc
-
+warning('off', 'Octave:possible-matlab-short-circuit-operator');
 %% Setup the parameters you will use for this part of the exercise
 input_layer_size  = 400;  % 20x20 Input Images of Digits
 num_labels = 10;          % 10 labels, from 1 to 10   
@@ -39,10 +39,10 @@ m = size(X, 1);
 rand_indices = randperm(m);
 sel = X(rand_indices(1:100), :);
 
-displayData(sel);
+% displayData(sel);
 
 fprintf('Program paused. Press enter to continue.\n');
-pause;
+% pause;
 
 %% ============ Part 2: Vectorize Logistic Regression ============
 %  In this part of the exercise, you will reuse your logistic regression
@@ -58,7 +58,7 @@ lambda = 0.1;
 [all_theta] = oneVsAll(X, y, num_labels, lambda);
 
 fprintf('Program paused. Press enter to continue.\n');
-pause;
+% pause;
 
 
 %% ================ Part 3: Predict for One-Vs-All ================

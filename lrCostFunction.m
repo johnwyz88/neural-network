@@ -36,11 +36,10 @@ grad = zeros(size(theta));
 %           grad = grad + YOUR_CODE_HERE (using the temp variable)
 %
 
-
-
-
-
-
+temp=[0;theta(2:end)];
+%temp transpose : this is so that no for loop is needed
+J = -1*(1/m)*sum(y.*log(sigmoid(X*theta))+(1-y).*log(1-sigmoid(X*theta))) + lambda/(2*m)*temp'*temp; 
+grad = ( X' * (sigmoid(X*theta) - y ) )/ m + lambda/m * temp ;
 
 
 
